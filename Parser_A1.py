@@ -4,8 +4,7 @@ url = 'https://www.a1.by/ru/search?text=%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%
 href = 1
 count = 1
 mobile = []
-min_prise_list = []
-max_prise_list = []
+prise_list = []
 while True:
     if href != 1:
         url = 'https://www.a1.by/' + href
@@ -17,7 +16,7 @@ while True:
     teme_min_prise = soup.find_all('span', class_="price-value")
     print(f'Страница №{count}\n---------------------')
     for i in teme_min_prise:
-        min_prise_list.append(i.text.replace(u'\xa0', ''))
+        prise_list.append(i.text.replace(u'\xa0', ''))
     try:
         href = (soup.find('a', class_='link link--primary pagination-link icon icon--arrow-right')).get('href')
     except AttributeError:
@@ -27,6 +26,6 @@ while True:
 
 count = 0
 for i in range(len(mobile)):
-    print(f'Название телефона: {mobile[i]}\nЦена от {min_prise_list[count]} руб./мес - 24 мес'
-          f'\nот {min_prise_list[count + 1]}')
+    print(f'Название телефона: {mobile[i]}\nЦена от {prise_list[count]} руб./мес - 24 мес'
+          f'\nот {prise_list[count + 1]}')
     count += 2
