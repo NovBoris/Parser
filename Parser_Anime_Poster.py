@@ -28,6 +28,9 @@ for i in range(len(anime)):
             anime_updates[anime[i].lower()] = [series[i] + ' ' + voice_acting[i]]
         else:
             anime_updates[anime[i].lower()] += [series[i] + ' ' + voice_acting[i]]
-print(anime_updates)
+for k, v in anime_updates.items():
+    print(f'{k}: {v}')
+else:
+    print('-' * 15)
 for k, v in anime_schedule.items():
     print(f'{k}: {v}')
