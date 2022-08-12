@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
-import requests
+# from bs4 import BeautifulSoup
+# import requests
 #
 # while True:
 #     url = 'https://pogoda7.ru/prognoz/BY-Belarus'
