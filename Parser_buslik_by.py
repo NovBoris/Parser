@@ -3,46 +3,46 @@ from bs4 import BeautifulSoup
 import requests
 
 
-# def product_page_parsing(href: str) -> str:
-#     r = requests.get('https://buslik.by' + href)
-#     r.encoding = 'UTF-8'
-#     soup = BeautifulSoup(r.text, 'html.parser')
-#     teme = soup.find('div', class_='product-action__price-current').get_text(strip=True)
-#     return teme
-#
-#
-# def href_parsing(url: str, page: int) -> str:
-#     r = requests.get(url)
-#     r.encoding = 'UTF-8'
-#     soup = BeautifulSoup(r.text, 'html.parser')
-#     href = soup.find_all('a', class_='new-pagination__link')
-#     for i in href:
-#         if i.text == str(page):
-#             href = i.get('href')
-#             print(href)
-#             return href
-#     else:
-#         print('Товар закончился')
-#         href = None
-#         return href
-#
-#
-# url = 'https://buslik.by/catalog/podguzniki/podguzniki_1/'
-# page = 1
-# while True:
-#     if page != 1:
-#         href = href_parsing(url, page)
-#         if href == None:
-#             break
-#         url = 'https://buslik.by' + href
-#         print(url)
-#     r = requests.get(url)
-#     r.encoding = 'UTF-8'
-#     soup = BeautifulSoup(r.text, 'html.parser')
-#     teme = soup.find_all('a', class_='catalog-item__link')
-#     for i in teme:
-#         print(product_page_parsing(i.get('href')))
-#     page += 1
+def product_page_parsing(href: str) -> str:
+    r = requests.get('https://buslik.by' + href)
+    r.encoding = 'UTF-8'
+    soup = BeautifulSoup(r.text, 'html.parser')
+    teme = soup.find('div', class_='product-action__price-current').get_text(strip=True)
+    return teme
+
+
+def href_parsing(url: str, page: int) -> str:
+    r = requests.get(url)
+    r.encoding = 'UTF-8'
+    soup = BeautifulSoup(r.text, 'html.parser')
+    href = soup.find_all('a', class_='new-pagination__link')
+    for i in href:
+        if i.text == str(page):
+            href = i.get('href')
+            print(href)
+            return href
+    else:
+        print('Товар закончился')
+        href = None
+        return href
+
+
+url = 'https://buslik.by/catalog/podguzniki/podguzniki_1/'
+page = 1
+while True:
+    if page != 1:
+        href = href_parsing(url, page)
+        if href == None:
+            break
+        url = 'https://buslik.by' + href
+        print(url)
+    r = requests.get(url)
+    r.encoding = 'UTF-8'
+    soup = BeautifulSoup(r.text, 'html.parser')
+    teme = soup.find_all('a', class_='catalog-item__link')
+    for i in teme:
+        print(product_page_parsing(i.get('href')))
+    page += 1
 
 url = 'https://buslik.by/catalog/podguzniki/podguzniki_1/'
 page = 2
