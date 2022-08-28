@@ -9,9 +9,9 @@ while True:
     request = requests.get(url)
     soup = BeautifulSoup(request.text, "html.parser")
     teme = soup.find_all('div', class_="text")
-    print(f'Страница № {count}\n-------------------------')
+    print(f'Страница № {count}\n------------------------')
     for i in teme:
-        print(i.text, end='\n-------------------------\n')
+        print(i.text, end='\n------------------------\n')
     try:
         href = (soup.find('a', class_='sel')).get('href')
     except AttributeError:
