@@ -14,7 +14,7 @@ while True:
     for i in teme_phone:
         mobile.append(i.text)
     teme_min_prise = soup.find_all('span', class_="price-value")
-    print(f'Страница №{count}\n-------------------------------------')
+    print(f'Страница №{count}\n---------------------------------------')
     for i in teme_min_prise:
         prise_list.append(i.text.replace(u'\xa0', ''))
     try:
